@@ -1,0 +1,23 @@
+{
+  "name": "loopsoftware-technical-assessment",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/David-Arrazola/loopSoftware-technical-assessment.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/David-Arrazola/loopSoftware-technical-assessment/issues"
+  },
+  "homepage": "https://github.com/David-Arrazola/loopSoftware-technical-assessment#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.8.0"
+  }
+}
