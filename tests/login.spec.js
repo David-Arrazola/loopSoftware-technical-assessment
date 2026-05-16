@@ -22,8 +22,8 @@ for (const currCase of testCases) {
     //logic for verifying that task is in specified column
     await expect(page.getByText(currCase.task)).toBeVisible();
 
-    // Locate the parent task card that contains the given task title.
-    // This scopes all further assertions to a single task component instead of the whole page.
+    // Locate the task's conatiner that holds the given task title.
+    // This scopes to a single task component instead of the whole page.
     const taskContainer = page
       .getByText(currCase.task)
       .locator("xpath=ancestor::div[1]");
