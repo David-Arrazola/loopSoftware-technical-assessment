@@ -22,9 +22,12 @@ for (const currCase of testCases) {
     //logic for verifying that task is in specified column
     await expect(page.getByText(currCase.task)).toBeVisible();
 
-    //logic for verifying if specified tags exists in the task
+    //Used to scope only on the div element that holds the current task
+    const taskCard = page.getByText(currCase.task).locator("..");
+
+    //logic for verifying if specified tags exists in the task (from line 26)
     for (const currTag of currCase.tags) {
-      await expect(page.getByText(currTag)).toBeVisible();
+      await expect(taskCard.getByText(currTag)).toBeVisible();
     }
   });
 }
