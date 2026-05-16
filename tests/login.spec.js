@@ -12,7 +12,9 @@ for (const currCase of testCases) {
       page.locator("h1", { hasText: "Web Application" }),
     ).toBeVisible();
 
-    //
+    //logic for clicking on correct tab to check ("Web application")
     await page.click(`text=${currCase.app}`);
+
+    await expect(page.getByText(currCase.task)).toBeVisible();
   });
 }
