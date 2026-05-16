@@ -22,12 +22,18 @@ for (const currCase of testCases) {
     //logic for verifying that task is in specified column
     await expect(page.getByText(currCase.task)).toBeVisible();
 
-    //Used to scope only on the div element that holds the current task
-    const taskCard = page.getByText(currCase.task).locator("..");
+    // Locate the parent task card that contains the given task title.
+    // This scopes all further assertions to a single task component instead of the whole page.
+    const taskContainer = page
+      .getByText(currCase.task)
+      .locator("xpath=ancestor::div[1]");
 
-    //logic for verifying if specified tags exists in the task (from line 26)
+    // Verify that all expected tags for the task exist within the scoped task card.
+    // Each tag is validated against a <span> element inside the specific task container.
     for (const currTag of currCase.tags) {
-      await expect(taskCard.getByText(currTag)).toBeVisible();
+      await expect(
+        taskContainer.locator("span", { hasText: currTag }),
+      ).toBeVisible();
     }
   });
 }
