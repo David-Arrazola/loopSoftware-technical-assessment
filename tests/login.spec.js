@@ -21,5 +21,10 @@ for (const currCase of testCases) {
 
     //logic for verifying that task is in specified column
     await expect(page.getByText(currCase.task)).toBeVisible();
+
+    //logic for verifying if specified tags exists in the task
+    for (const currTag of currCase.tags) {
+      await expect(page.getByText(currTag)).toBeVisible();
+    }
   });
 }
