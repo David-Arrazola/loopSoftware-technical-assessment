@@ -15,6 +15,11 @@ for (const currCase of testCases) {
     //logic for clicking on correct tab to check ("Web application")
     await page.click(`text=${currCase.app}`);
 
+    //logic for verifying that specified column exists
+    await expect(page.getByText(currCase.column)).toBeVisible();
+    // console.log("COLUMN EXISTS");
+
+    //logic for verifying that task is in specified column
     await expect(page.getByText(currCase.task)).toBeVisible();
   });
 }
